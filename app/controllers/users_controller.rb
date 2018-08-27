@@ -4,6 +4,20 @@ class UsersController < ApplicationController
   end
   
   def show
-    @users = User.find_by(params[:id])
+    @user = User.find_by(id: params[:id])
+  end
+  
+  def new
+    @user = User.new
+  end
+  
+  def create
+    @user = User.new(name: params[:name], email: params[:email])
+    if @user.save
+      flash[:notice] = "This user signup has completed!"
+      redirect_to("/users/#{@user.id}")
+    else
+      render("/users/new")
+    end
   end
 end
