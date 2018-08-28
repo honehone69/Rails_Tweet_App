@@ -10,9 +10,9 @@
         <% end %>
         <%= form_tag("/users/create") do %>
           <p>User Name</p>
-          <input name="name" value="<%= @user.name %>">
+          <input class="inputstyle" name="name" value="<%= @user.name %>">
           <p>Email</p>
-          <input name="email" value="<%= @user.email %>">
+          <input class="inputstyle" name="email" value="<%= @user.email %>">
           <input type="submit" value="Signup">
         <% end %>
       </div>
